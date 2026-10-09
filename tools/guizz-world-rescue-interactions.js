@@ -51,11 +51,6 @@
     ko: "사용 가능한 언어", zh: "可用语言", ar: "اللغات المتاحة", hi: "उपलब्ध भाषाएँ",
     nl: "Beschikbare talen", pl: "Dostępne języki", tr: "Kullanılabilir diller"
   };
-  const MENU_BUTTON_LABELS = {
-    en: "Open menu", es: "Abrir menú", fr: "Ouvrir le menu", de: "Menü öffnen", it: "Apri menu",
-    pt: "Abrir menu", ru: "Открыть меню", ja: "メニューを開く", ko: "메뉴 열기", zh: "打开菜单",
-    ar: "فتح القائمة", hi: "मेनू खोलें", nl: "Menu openen", pl: "Otwórz menu", tr: "Menüyü aç"
-  };
   const SOCIAL_EYEBROW_COPY = {
     en: "GUIZZ · SOCIAL", es: "GUIZZ · REDES", fr: "GUIZZ · RÉSEAUX", de: "GUIZZ · SOCIAL",
     it: "GUIZZ · SOCIAL", pt: "GUIZZ · REDES SOCIAIS", ru: "GUIZZ · СОЦСЕТИ", ja: "GUIZZ · SNS",
@@ -404,7 +399,6 @@
 
   const languageButton = document.querySelector('button[aria-label="Change language"]');
   let languageMenu = null;
-  const menuButton = document.querySelector('button[aria-label="Menu"]');
   const notificationRegion = document.querySelector('section[aria-label^="Notifications"]');
   function closeLanguageMenu(returnFocus) {
     if (!languageMenu) return;
@@ -456,7 +450,6 @@
     const homeLink = document.querySelector(".nav-logo");
     if (homeLink) homeLink.setAttribute("aria-label", HOME_LABELS[language] || HOME_LABELS.en);
     if (notificationRegion) notificationRegion.setAttribute("aria-label", NOTIFICATION_LABELS[language] || NOTIFICATION_LABELS.en);
-    if (menuButton) menuButton.setAttribute("aria-label", MENU_BUTTON_LABELS[language] || MENU_BUTTON_LABELS.en);
 
     const text = function (selector, key) {
       const element = document.querySelector(selector);

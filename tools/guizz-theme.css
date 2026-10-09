@@ -28,15 +28,13 @@ body {
 
 body::after {
   content: "GUIZZ";
-  position: fixed;
-  z-index: 45;
-  left: 20px;
-  bottom: 14px;
+  display: block;
+  width: fit-content;
+  margin: 0 auto 18px;
   color: rgba(126, 190, 255, .38);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: .32em;
-  pointer-events: none;
   text-shadow: 0 0 20px var(--guizz-glow);
 }
 
@@ -101,9 +99,9 @@ nav {
 }
 
 main[data-tools-column="true"] {
-  max-width: 900px !important;
+  max-width: 960px !important;
   padding-top: 48px !important;
-  padding-bottom: 110px !important;
+  padding-bottom: 72px !important;
 }
 
 .tl-head {
@@ -392,7 +390,8 @@ html[data-theme="light"] .tl-tabpanel {
 .site-nav .nav-glide,
 .site-nav .nav-chevron,
 .site-nav .nav-cta,
-.site-nav button[aria-label="Menu"] {
+.site-nav button[data-slot="dropdown-menu-trigger"],
+.site-nav div:has(> button[data-slot="dropdown-menu-trigger"]) {
   display: none !important;
 }
 
@@ -500,22 +499,36 @@ main[data-tools-column="true"] {
 @media (max-width: 680px) {
   .tl-head-row {
     display: grid !important;
-    grid-template-columns: 48px minmax(0, 1fr) !important;
+    grid-template-columns: minmax(0, 1fr) 88px !important;
+    grid-template-rows: auto auto !important;
     align-items: center !important;
     gap: 12px !important;
   }
 
   .tl-slot.is-big {
-    width: 48px !important;
-    height: 48px !important;
+    display: none !important;
   }
 
-  .tl-head-row::after {
+  .tl-head-row > .min-w-0 { display: contents !important; }
+  .tl-head-row .tl-title {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 !important;
+    font-size: clamp(25px, 7vw, 31px) !important;
+    line-height: 1.15 !important;
+  }
+  .tl-head-row .tl-sub {
     grid-column: 1 / -1;
-    justify-self: center;
-    flex-basis: 112px;
-    width: 112px;
-    border-radius: 17px;
+    grid-row: 2;
+    max-width: none;
+    margin: 0 !important;
+  }
+  .tl-head-row::after {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    width: 88px;
+    border-radius: 12px;
   }
 
   .tl-tabs {
@@ -937,7 +950,24 @@ body.world-selected #guizz-socials { display: none !important; }
 html[dir="rtl"] .guizz-site-open { right: auto; left: 9px; }
 @media (max-width: 520px) {
   .guizz-sites-grid { grid-template-columns: 1fr; gap: 9px; }
-  .guizz-site-cover { aspect-ratio: 16 / 10; }
+  .guizz-site-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: stretch;
+    min-height: 96px;
+  }
+  .guizz-site-cover {
+    position: static;
+    width: 96px;
+    height: 96px;
+    aspect-ratio: 1;
+  }
+  .guizz-site-cover img { padding: 0; object-fit: cover; }
+  .guizz-site-info { align-content: center; padding: 12px 42px 12px 14px; }
+  .guizz-site-open { top: 10px; right: 10px; }
+  html[dir="rtl"] .guizz-site-open { right: auto; left: 10px; }
+  html[dir="rtl"] .guizz-site-info { padding: 12px 14px 12px 42px; }
 }
 
 /* Determinate copy progress reflects bytes actually consumed by the ZIP workers. */
