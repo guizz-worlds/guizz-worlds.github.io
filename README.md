@@ -6,6 +6,8 @@ Site estático para recuperar a elegibilidade de conquistas em mundos Minecraft 
 - Repositório: <https://github.com/guizz-worlds/guizz-worlds.github.io>
 - Publicação: GitHub Pages, branch `main`, pasta raiz.
 
+A página inicial `https://guizz-worlds.github.io/` abre a ferramenta diretamente, sem tela de redirecionamento. Os endereços antigos em `/tools/` continuam disponíveis para links já compartilhados.
+
 ## SEO e idiomas
 
 O World Rescue tem páginas próprias para 15 idiomas, com metadados localizados e links `hreflang` entre as versões. O sitemap fica em <https://guizz-worlds.github.io/sitemap.xml> e o `robots.txt` informa esse endereço aos robôs de busca. Depois de atualizar páginas, é possível notificá-las aos mecanismos compatíveis com IndexNow.

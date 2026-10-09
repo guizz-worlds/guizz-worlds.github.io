@@ -228,14 +228,14 @@
     tr: "Hile veya Yaratıcı mod sonrasında Minecraft Bedrock başarılarını geri kazanın. .mcworld dosyasını tarayıcıda inceleyip onarılmış bir kopya indirin; orijinal dosya değişmeden kalır."
   };
   const LANGUAGE_URLS = {
-    en: "./guizz-world-rescue-en.html", es: "./guizz-world-rescue-es.html",
-    fr: "./guizz-world-rescue-fr.html", de: "./guizz-world-rescue-de.html",
-    it: "./guizz-world-rescue-it.html", pt: "./guizz-world-rescue.html",
-    ru: "./guizz-world-rescue-ru.html", ja: "./guizz-world-rescue-ja.html",
-    ko: "./guizz-world-rescue-ko.html", zh: "./guizz-world-rescue-zh.html",
-    ar: "./guizz-world-rescue-ar.html", hi: "./guizz-world-rescue-hi.html",
-    nl: "./guizz-world-rescue-nl.html", pl: "./guizz-world-rescue-pl.html",
-    tr: "./guizz-world-rescue-tr.html"
+    en: "/tools/guizz-world-rescue-en.html", es: "/tools/guizz-world-rescue-es.html",
+    fr: "/tools/guizz-world-rescue-fr.html", de: "/tools/guizz-world-rescue-de.html",
+    it: "/tools/guizz-world-rescue-it.html", pt: "/",
+    ru: "/tools/guizz-world-rescue-ru.html", ja: "/tools/guizz-world-rescue-ja.html",
+    ko: "/tools/guizz-world-rescue-ko.html", zh: "/tools/guizz-world-rescue-zh.html",
+    ar: "/tools/guizz-world-rescue-ar.html", hi: "/tools/guizz-world-rescue-hi.html",
+    nl: "/tools/guizz-world-rescue-nl.html", pl: "/tools/guizz-world-rescue-pl.html",
+    tr: "/tools/guizz-world-rescue-tr.html"
   };
   const LANGUAGE_TAGS = {
     en: "en", es: "es", fr: "fr", de: "de", it: "it", pt: "pt-BR",
@@ -413,7 +413,7 @@
     const socialCopy = SOCIAL_COPY[language] || SOCIAL_COPY.en;
     const siteSectionCopy = SITE_SECTION_COPY[language] || SITE_SECTION_COPY.en;
     const socialLinkLabels = SOCIAL_LINK_LABELS[language] || SOCIAL_LINK_LABELS.en;
-    const canonicalUrl = new URL(LANGUAGE_URLS[language] || LANGUAGE_URLS.en, window.location.href).href;
+    const canonicalUrl = new URL(LANGUAGE_URLS[language] || LANGUAGE_URLS.en, window.location.origin).href;
     document.documentElement.lang = LANGUAGE_TAGS[language] || language;
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
     document.title = DOCUMENT_TITLES[language] || DOCUMENT_TITLES.en;
